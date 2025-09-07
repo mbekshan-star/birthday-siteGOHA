@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Picture Birthday</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Полупрозрачные плашки с лёгким свечением текста */
+        .content,
+        .content.box.style2 {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255,192,203,0.6), 0 0 10px rgba(255,182,193,0.4);
+        }
+
+        /* Чёрный фон галереи */
+        #work {
+            background-color: #000;
+            position: relative;
+        }
+
+        /* Кнопка музыки */
+        #playMusic {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.3);
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255,192,203,0.6);
+            transition: 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        #playMusic:hover {
+            background-color: rgba(255,255,255,0.5);
+            text-shadow: 0 0 10px rgba(255,182,193,0.8);
+        }
+
+        /* Контейнер для сердечек */
+        #heartsContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Стиль сердечек */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at center, #ff00ff, #ff99ff);
+            border-radius: 50%;
+        }
+
+        .heart:before { top: -10px; left: 0; }
+        .heart:after { left: 10px; top: 0; }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-400px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Intro -->
+    <section id="intro" class="main style1 dark fullscreen">
+        <div class="content">
+            <header>
+                <h2>С ДНЮХОЙ РОДНАЯ КЕНТ МОЙ БРАТ</h2>
+            </header>
+            <p>Сделал для тебя такой необычный подарок, листай уже ;) </p>
+        </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="main style2 right dark fullscreen">
+        <div class="content box style2">
+            <header>
+                <h2>ПОЖЕЛАНИЯ КЕНТУ</h2>
+            </header>
+            <p>Желаю тебе здоровья, успехов в учебе и бесконечного счастья. Верь в себя и вперед!</p>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="main style2 left dark fullscreen">
+        <div class="content box style2">
+            <header>
+                <h2>ЭТО ТАК СЦЕНА ПОСЛЕ ТИТРОВ</h2>
+            </header>
+            <p>Готовлю этот мини подарок для тебя. За выбор фоток не ругайся — красивые брал ;) </p>
+        </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="main style3 primary">
+        <div class="content">
+            <header>
+                <h2>ТВОИ ФОТОЧКИ ЭСТЕТИК ПИКМИ</h2>
+                <p><button id="playMusic">НАЖМИ СЮДЫ</button></p>
+            </header>
+
+            <!-- Аудио -->
+            <audio id="myAudio">
+                <source src="audio/my-music.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает audio.
+            </audio>
+
+            <!-- Галерея -->
+            <div class="gallery">
+                <article class="from-left">
+                    <a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" alt="" /></a>
+                </article>
+                <article class="from-left">
+                    <a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" alt="" /></a>
+                </article>
+                <article class="from-left">
+                    <a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" alt="" /></a>
+                </article>
+                <article class="from-right">
+                    <a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" alt="" /></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контейнер для сердечек -->
+    <div id="heartsContainer"></div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="menu">
+            <li>&copy; Untitled</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Скрипт для музыки и сердечек -->
+    <script>
+        const playButton = document.getElementById('playMusic');
+        const audio = document.getElementById('myAudio');
+        const heartsContainer = document.getElementById('heartsContainer');
+
+        playButton.addEventListener('click', function() {
+            // Запуск или пауза музыки
+            if (audio.paused) {
+                audio.play();
+                playButton.textContent = "Музыка играет 🎵";
+            } else {
+                audio.pause();
+                playButton.textContent = "НАЖМИ СЮДЫ";
+            }
+
+            // Создание сердечек
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = Math.random() * window.innerHeight + 'px';
+                heart.style.animation = `floatHeart ${2 + Math.random()*2}s ease-out forwards`;
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 4000);
+            }
+        });
+    </script>
+
+</body>
+</html>
